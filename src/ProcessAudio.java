@@ -7,7 +7,6 @@ public class ProcessAudio {
 	private SphericalCoordinates sphericalCoordsSS;
 	private int channels;
 	private int sampleRate;
-	private int frameSize;
 	private int bufferSize;
 	public float delayRD1, delayRD2, delayRD3, delayRD4;
 	public float delayVD1, delayVD2, delayVD3, delayVD4;
@@ -19,7 +18,6 @@ public class ProcessAudio {
 		data = tDataIn;
 		channels = channelsIn;
 		sampleRate = sampleRateIn;
-		frameSize = sampleRateIn;
 		bufferSize = bufferSizeIn;
 		
 		threeDEngine = new ThreeDEngine(data, channels, sampleRate, bufferSize, 5000.0, 5.0);
@@ -33,7 +31,6 @@ public class ProcessAudio {
 		threeDOut = threeDEngine.processDirection(inputBuffer, sphericalCoordsSS);
 		
 
-		//return threeDOutputBuffer;
 		return threeDOut;
 	}
 }

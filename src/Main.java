@@ -47,7 +47,6 @@ public class Main {
 	}
 
 	private JFrame frame;
-	private ControlDialog controlDialog;
 	private ThreadData tData;
 	private double x = 0;
 	private double y = 0;
@@ -58,14 +57,13 @@ public class Main {
 	private Plane planeX = Planes.fromNormal(Vector3D.of(1, 0, 0), precision);
 	private Plane planeY = Planes.fromNormal(Vector3D.of(0, 1, 0), precision);
 	private Plane plane2X, plane2Y;
-	private TriangleMesh roomMesh, listenerMesh, soundSourceMesh;
+	private TriangleMesh soundSourceMesh;
 	private QuaternionRotation yRotation, xRotation;
 	private AffineTransformMatrix3D scale, maty, matx;
 	private BufferedImage bimg;
 	private double[] zBuffer;
 	private boolean bSwap = false;
-	private double unity = 0;
-
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -94,13 +92,12 @@ public class Main {
         Container pane = frame.getContentPane();
         pane.setLayout(new BorderLayout());
 
-		controlDialog = new ControlDialog(tData, frame);
+		new ControlDialog(tData, frame);
 		
 
 		// panel to display render results
         JPanel renderPanel = new JPanel() {
             public void paintComponent(Graphics g) {
-            	//long startTime = System.currentTimeMillis();
             	
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setColor(Color.BLACK);
@@ -157,13 +154,8 @@ public class Main {
                 drawLinezB(scale.apply(maty.apply(matx.apply(Vector3D.of(0.2, 0, -5)))), scale.apply(maty.apply(matx.apply(Vector3D.of(-0.2, 0, -5)))), Color.WHITE);
                 drawLinezB(scale.apply(maty.apply(matx.apply(Vector3D.of(0, 0.2, -5)))), scale.apply(maty.apply(matx.apply(Vector3D.of(0, -0.2, -5)))), Color.WHITE);
                 
-                //Set up timer to update sound source position every so often
-                
-                
                 g2.drawImage(bimg, 0, 0, null);
                 
-                //long stopTime = System.currentTimeMillis();
-                //System.out.println(stopTime - startTime);
             }
         };
 
@@ -177,7 +169,6 @@ public class Main {
 					updatePosition();
 					renderPanel.repaint();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
             }
@@ -218,7 +209,6 @@ public class Main {
 
             @Override
             public void keyPressed(KeyEvent e) {
-            	double incrementRate = 0.02;
             	int key = e.getKeyCode();
             	
             	if (key == KeyEvent.VK_RIGHT) {
@@ -229,9 +219,7 @@ public class Main {
              	}
             	if (key == KeyEvent.VK_UP) {
             	}
-            	//Press 'D' to carry out data dump of impulse array
             	if (key == KeyEvent.VK_D) {
-            		//refData.bStartDump = true;
             	}
             	
             	renderPanel.repaint();
@@ -301,7 +289,6 @@ public class Main {
             	}
         	}
         }
-		int o = 0; 
 	}
 	
 	public void drawPoints(Graphics2D g2, Vector3D start, Vector3D end) {
@@ -342,21 +329,17 @@ public class Main {
 		SphericalCoordinates spherical = SphericalCoordinates.fromCartesian(Vector3D.of(tData.soundSourcePos.getX(), tData.soundSourcePos.getZ(), tData.soundSourcePos.getY()));
 		
 		//Update Azimuth angle
-		//tData.incrementAzimuth = 0.01 * Math.PI;
 		double newPosAzimuth = spherical.getAzimuth() + tData.incrementAzimuth * Math.PI;
 		//Limit angle
 		newPosAzimuth %= 2.0 * Math.PI;
 		
 		//Update polar angle
-		//incrementPolar = 0.005 * Math.PI;
 		double newPosPolar = spherical.getPolar();
 		if (newPosPolar >= 1*Math.PI - tData.incrementPolar * Math.PI) {
 			bSwap = false;
-			//newPosAz += Math.PI;
 		}
 		if (newPosPolar <= 0*Math.PI + tData.incrementPolar * Math.PI) {
 			bSwap = true;
-			//newPosAz -= Math.PI;
 		}
 		if (bSwap) {
 			newPosPolar += tData.incrementPolar * Math.PI;
@@ -364,8 +347,6 @@ public class Main {
 		else {
 			newPosPolar -= tData.incrementPolar * Math.PI;
 		}
-		//System.out.println(bSwap);
-		
 		
 		//Update position and convert back to Cartesian coordinates
 		tData.soundSourcePos = SphericalCoordinates.toCartesian(spherical.getRadius(), newPosAzimuth, newPosPolar);

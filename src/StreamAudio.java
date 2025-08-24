@@ -2,14 +2,9 @@ import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.concurrent.BlockingQueue;
-
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -23,7 +18,7 @@ public class StreamAudio implements Runnable {
 	private Main.ThreadData data;
 	private File f, fOut;
 	private AudioInputStream stream;
-	private AudioFormat format, newFormat;
+	private AudioFormat format;
 	private FileOutputStream fos;
 	private BufferedOutputStream bos = null;
 	private DataOutputStream out;
@@ -33,8 +28,6 @@ public class StreamAudio implements Runnable {
 	private int bitsPerSample;
 	private int channels;
 	public ProcessAudio processAudio;
-	private double[][] impulseArray;
-	
 	private long stopTime, startTime;
 	
 
@@ -108,7 +101,6 @@ public class StreamAudio implements Runnable {
         int numRead = 0;
         byte[] buf = new byte[BUFFER_SIZE];
         byte[] bufOut = new byte[line.getBufferSize()];
-        //byte[] bufTemp = new byte[line.getBufferSize()];
         double[][] doubleArray, doubleArrayTemp;// = new double[channels][buf.length / frameSize];
         while (true) {
 	        while ((numRead = stream.read(buf, 0, buf.length)) >= 0) {
@@ -127,19 +119,6 @@ public class StreamAudio implements Runnable {
 	        	
 	    		startTime = System.currentTimeMillis();
 	        		        	
-	        	//Process Audio if reflection processing completed
-	        	/*if (impulseArray != null) {
-	        		doubleArray = processAudio.processData(doubleArray, impulseArray);
-	        	}
-	        	else {
-	        		//Otherwise fill buffer with silence
-	        		for (int i = 0; i < doubleArray.length; i++) { //channels
-		        		for (int j = 0; j < doubleArray[0].length; j++) { //data
-		        			doubleArray[i][j] = 0.0;
-	        			}
-	        		}
-	        	}*/
-	        	
 	        	doubleArray = processAudio.processData(doubleArray);
 	        	
 	    		//Apply attenuation to prevent clipping

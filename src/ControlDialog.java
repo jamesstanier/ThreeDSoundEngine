@@ -44,7 +44,6 @@ public class ControlDialog {
 		ThreeDEngine.setBounds(100, 100, 800, 500);
 		ThreeDEngine.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		ThreeDEngine.getContentPane().setLayout(null);
-		//ThreeDEngine.setLocationRelativeTo(frame);
 		ThreeDEngine.setLocation(800, 100);
 		
 
@@ -63,8 +62,6 @@ public class ControlDialog {
 						data.bLoop = checkBox.isSelected();
 						data.bAudioStop = false;
 						data.bExit = false;
-						
-						//Update information from dialog
 					}
 				}
 				catch(OutOfMemoryError oome) {

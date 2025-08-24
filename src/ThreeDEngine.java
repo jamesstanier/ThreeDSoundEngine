@@ -4,7 +4,6 @@ import org.apache.commons.geometry.euclidean.threed.SphericalCoordinates;
 public class ThreeDEngine {
 
 	private Main.ThreadData data;
-	//private SphericalCoordinates sphericalCoordsSS;
 	private int channels;
 	private int sampleRate;
 	private int writePositionD = 0;
@@ -48,8 +47,6 @@ public class ThreeDEngine {
 		outBufferV = new double[channels][bufferSize];
 		outBufferFiltered = new double[channels][bufferSize];
 		
-		//Get spherical coordinates from position (swapping y and z axes)
-		//sphericalCoordsSS = SphericalCoordinates.fromCartesian(data.soundSourcePos.getX(), data.soundSourcePos.getZ(), data.soundSourcePos.getY());
 		double[] hPan = new double[channels];
 		double[] hPanLerp = new double[channels];
 		double vPan;
@@ -113,7 +110,6 @@ public class ThreeDEngine {
 			cOFrequency = (((((1 - hPan[0] * hPan[1]) + (1 - vPan)) / data.panDivision)) * data.upperLimitFrequency) + data.lowerLimitFrequency; //Smooth the transition to the back by altering the cutoff frequency
 		}
 		else cOFrequency = 20000.0;
-		//System.out.println(cOFrequency);
 		double alpha = filter(cOFrequency);
 		for (int i = 0; i < outBuffer.length; i++) { //channels	
 			outBufferFiltered[i][0] = fOld[i] + (alpha * (outBuffer[i][0] - fOld[i]));
@@ -160,7 +156,6 @@ public class ThreeDEngine {
 		}
 		else panning[0] = 1.0;
 		
-		//System.out.println(panning[0] * panning[1]);
 		return panning;
 	}
 	
