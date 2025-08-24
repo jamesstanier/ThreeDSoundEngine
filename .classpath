@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-angle-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-arrays-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-combinatorics-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-complex-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-core-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-field-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-fraction-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-gamma-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-primes-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-quaternion-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-numbers-1.1/commons-numbers-rootfinder-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-geometry-1.0/commons-geometry-core-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-geometry-1.0/commons-geometry-euclidean-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-geometry-1.0/commons-geometry-io-core-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-geometry-1.0/commons-geometry-io-euclidean-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jstan/Java Libraries/commons-geometry-1.0/commons-geometry-spherical-1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
