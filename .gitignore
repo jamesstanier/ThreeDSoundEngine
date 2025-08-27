@@ -1,3 +1,35 @@
 *.wav
 Archive/
 bin/
+
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+recommenders/
+
+# Build artifacts & logs
+*.class
+*.log
+hs_err_pid*
+replay_*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env & secrets
+*.env
+*.env.*
+.envrc
+application.properties
+application.yml
+application-*.yml
+!application.example.properties
+!application.example.yml

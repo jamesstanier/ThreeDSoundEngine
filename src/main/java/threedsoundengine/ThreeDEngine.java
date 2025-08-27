@@ -1,3 +1,5 @@
+package threedsoundengine;
+
 import org.apache.commons.geometry.euclidean.oned.Vector1D;
 import org.apache.commons.geometry.euclidean.threed.SphericalCoordinates;
 

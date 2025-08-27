@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ThreeDSoundEngine</groupId>
+  <artifactId>ThreeDSoundEngine</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.jupiter.version>5.10.2</junit.jupiter.version>
+  </properties>
+
+  <dependencies>
+    <!-- Apache Commons Geometry 1.0 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-geometry-core</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-geometry-euclidean</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <!-- Apache Commons Numbers 1.1 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-numbers-core</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-numbers-angle</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-numbers-quaternion</artifactId>
+      <version>1.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Make sure surefire runs JUnit 5 -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.5</version>
+          <configuration>
+            <useModulePath>false</useModulePath>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <!-- Java 17 compiler settings via release flag -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <release>${maven.compiler.release}</release>
+        </configuration>
+      </plugin>
+	    <plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-shade-plugin</artifactId>
+	      <version>3.5.2</version>
+	      <executions>
+	        <execution>
+	          <phase>package</phase>
+	          <goals><goal>shade</goal></goals>
+	          <configuration>
+	            <createDependencyReducedPom>true</createDependencyReducedPom>
+	            <transformers>
+	              <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+	                <mainClass>threedsoundengine.Main</mainClass>
+	              </transformer>
+	            </transformers>
+	          </configuration>
+	        </execution>
+	      </executions>
+	    </plugin>
+    </plugins>
+  </build>
+</project>
