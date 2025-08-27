@@ -101,10 +101,9 @@ public class ThreeDEngine {
 		
 		hPanOld = hPan;
 		
-		//Sum buffers (assign for now)
 		outBuffer = outBufferV;
 		
-		//Apply low pass filtering to output buffer
+		//Apply low pass filtering to output buffer (front-back filtering)
 		double cOFrequency;
 		if (sphericalCoordsSS.getAzimuth() > 4 * Math.PI / 4 && sphericalCoordsSS.getAzimuth() < 8 * Math.PI / 4 && sphericalCoordsSS.getPolar() > 0 && sphericalCoordsSS.getPolar() < Math.PI) {
 			cOFrequency = (((((1 - hPan[0] * hPan[1]) + (1 - vPan)) / data.panDivision)) * data.upperLimitFrequency) + data.lowerLimitFrequency; //Smooth the transition to the back by altering the cutoff frequency

@@ -28,7 +28,7 @@ public class StreamAudio implements Runnable {
 	private int bitsPerSample;
 	private int channels;
 	public ProcessAudio processAudio;
-	private long stopTime, startTime;
+	//private long stopTime, startTime;
 	
 
 	public StreamAudio(Main.ThreadData tDataIn) throws UnsupportedAudioFileException, IOException {
@@ -117,15 +117,15 @@ public class StreamAudio implements Runnable {
 	        	}
 
 	        	
-	    		startTime = System.currentTimeMillis();
+	    		//startTime = System.currentTimeMillis();
 	        		        	
 	        	doubleArray = processAudio.processData(doubleArray);
 	        	
 	    		//Apply attenuation to prevent clipping
 	        	doubleArray = automaticGainControl(doubleArray, bitsPerSample);
 
-	    		stopTime = System.currentTimeMillis();
-	    		System.out.println(stopTime - startTime);
+	    		//stopTime = System.currentTimeMillis();
+	    		//System.out.println(stopTime - startTime);
 
 	    		//Convert back from double to byte array
 	        	bufOut = toByteArray(doubleArray, frameSize, channels);

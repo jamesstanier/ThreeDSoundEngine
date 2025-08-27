@@ -194,7 +194,6 @@ public class Main {
         renderPanel.addMouseWheelListener(new MouseWheelListener() {
         	 public void mouseWheelMoved(MouseWheelEvent e) {
         		 zoom += e.getWheelRotation()/5.0;
-        		 //if (zoom < 1.0) zoom = 1.0;
         		 renderPanel.repaint();
         	 }
         });
@@ -251,10 +250,6 @@ public class Main {
             Vector3D r1 = maty.apply(matx.apply(s1));
             Vector3D r2 = maty.apply(matx.apply(s2));
             Vector3D r3 = maty.apply(matx.apply(s3));
-
-            //Vector3D r1 = maty.apply(s1);
-            //Vector3D r2 = maty.apply(s2);
-            //Vector3D r3 = maty.apply(s3);
 
             drawLinezB(r1, r2, color);
             drawLinezB(r2, r3, color);
