@@ -1,3 +1,17 @@
+/*
+ * Copyright (c) 2025 James G. Stanier
+ *
+ * This file is part of ThreeDSoundEngine.
+ *
+ * This software is dual-licensed under:
+ *   1. The GNU General Public License v3.0 (GPLv3)
+ *   2. A commercial license (contact j.stanier766@gmail.com for details)
+ *
+ * You may use this file under the terms of the GPLv3 as published by
+ * the Free Software Foundation. For proprietary/commercial use,
+ * please see the LICENSE-COMMERCIAL file or contact the copyright holder.
+ */
+
 package threedsoundengine;
 
 import java.awt.Color;
@@ -42,7 +56,7 @@ public class ControlDialog {
 
 	private void setup() throws Exception {
 		ThreeDEngine = new JDialog(frame);
-		ThreeDEngine.setTitle("Room Reverb Dialog");
+		ThreeDEngine.setTitle("3D Sound Engine Dialog");
 		ThreeDEngine.setBounds(100, 100, 800, 500);
 		ThreeDEngine.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		ThreeDEngine.getContentPane().setLayout(null);
@@ -276,6 +290,11 @@ public class ControlDialog {
 		lblLowerLimitFrequency_value.setBounds(720, 300, 56, 16);
 		ThreeDEngine.getContentPane().add(lblLowerLimitFrequency_value);
 		
+		JLabel lblCredits = new JLabel("<html>Created by James G Stanier 2025<html>");
+		lblCredits.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCredits.setBounds(50, 200, 200, 32);
+		ThreeDEngine.getContentPane().add(lblCredits);
+
 		ThreeDEngine.setVisible(true);
 	}
 }
