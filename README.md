@@ -4,6 +4,9 @@ ThreeDSoundEngine is an experimental **3D audio rendering engine** that creates 
 
 Unlike many binaural systems that work only over headphones, this engine is designed to be **effective over both headphones *and* loudspeakers** — giving a convincing sense of direction and height in a standard stereo setup.
 
+Headphone demo available on YouTube [here](https://youtu.be/a941QokUL3I).  
+Loudspeaker demo available on YouTube [here](https://youtu.be/1aBVKUXOofg).
+
 ---
 
 ## ✨ Key Features
@@ -55,6 +58,7 @@ mvnw.cmd clean package
 # Windows (PowerShell-safe syntax)
 mvnw.cmd --% exec:java -Dexec.mainClass=threedsoundengine.Main
 ```
+Or just double-click the 'ThreeDSoundEngine-0.0.1.jar' file (after downloading) to get it running.
 
 ---
 
