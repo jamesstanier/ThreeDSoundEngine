@@ -1,6 +1,6 @@
 # ThreeDSoundEngine — A Novel 3D Audio Engine for Headphones and Loudspeakers
 
-ThreeDSoundEngine is an experimental **3D audio rendering engine** that creates the illusion of sound sources moving in real three‑dimensional space.
+ThreeDSoundEngine is a new **3D audio rendering engine** that creates the illusion of sound sources moving in real three‑dimensional space.
 
 Unlike many binaural systems that work only over headphones, this engine is designed to be **effective over both headphones *and* loudspeakers** — giving a convincing sense of direction and height in a standard stereo setup.
 
