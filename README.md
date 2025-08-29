@@ -71,7 +71,7 @@ The engine combines:
 
 These components aim to preserve localisation on headphones while **remaining effective on loudspeakers**, which is the key novelty. You just need to enhance the vertical localisation cues via the 'Vertical Gain' control (not too much); leave off for headphones.
 
-The other controls are for varying the yellow test sound source movement in angular rates via the Azimuth and Polar sliders. The last three controls (pan divisions and upper and lower cut-off frequencies) are for front-back filtering, which requires more work.
+The other controls are for varying the yellow test sound source movement in angular rates via the Azimuth and Polar sliders. The last three controls (pan divisions and upper and lower cut-off frequencies) are for front-back filtering, which are not great and require more work.
 
 ---
 
