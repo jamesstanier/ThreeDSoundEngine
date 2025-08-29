@@ -95,7 +95,7 @@ Please open issues/PRs with experiments, references, or datasets. Benchmarks and
 This project is **dual‑licensed**:
 
 - **GPL v3** (see [LICENSE](LICENSE)) — you may use, modify, and distribute under GPL v3.
-- **Commercial license** — for proprietary/closed‑source use, [contact me](mailto:j.stanier766@gmail.com).
+- **Commercial license** — for proprietary/closed‑source use, contact me:j.stanier766(at)gmail.com.
 
 ---
 
